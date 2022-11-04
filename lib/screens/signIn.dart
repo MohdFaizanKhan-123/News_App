@@ -53,21 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  // void startTimer() {
-  //   const onsec = Duration(seconds: 1);
-  //   Timer _timer = Timer.periodic(onsec, (timer) {
-  //     if (start == 0) {
-  //       setState(() {
-  //         timer.cancel();
-  //         otp();
-  //       });
-  //     } else {
-  //       setState(() {
-  //         start--;
-  //       });
-  //     }
-  //   });
-  // }
+ 
 
   void otp() {
     _auth.verifyPhoneNumber(
@@ -309,96 +295,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
 
-        // Text(
-        //   "Register with Phone",
-        //   textAlign: TextAlign.start,
-        //   style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold),
-        // ),
-        // SizedBox(
-        //   height: 40.0,
-        // ),
-
-        // TextFormField(
-        //     controller: phoneController,
-        //     decoration: InputDecoration(
-        //       hintText: "Phone Number",
-        //       labelText: "Phone Number",
-        //       border: OutlineInputBorder(
-        //         borderRadius: BorderRadius.circular(25.0),
-        //         borderSide: BorderSide(
-        //           color: Colors.deepPurple,
-        //         ),
-        //       ),
-        //     ),
-        //     keyboardType: TextInputType.number,
-        //     validator: validateMobile,
-        //     onSaved: (String val) {
-        //       _mobile = val;
-        //     }),
-        // SizedBox(
-        //   height: 20.0,
-        // ),
-        // RichText(
-        //     text: TextSpan(
-        //   children: [
-        //     TextSpan(
-        //       text: "Send OTP again in ",
-        //       style: TextStyle(fontSize: 16, color: Colors.yellowAccent),
-        //     ),
-        //     TextSpan(
-        //       text: "00:$start",
-        //       style: TextStyle(fontSize: 16, color: Colors.pinkAccent),
-        //     ),
-        //     TextSpan(
-        //       text: " sec ",
-        //       style: TextStyle(fontSize: 16, color: Colors.yellowAccent),
-        //     ),
-        //   ],
-        // )),
-
-        // FlatButton(
-        //   onPressed: () async {
-        //     setState(() {
-        //       showLoading = true;
-        //     });
-        //     // startTimer();
-        //     await _auth.verifyPhoneNumber(
-        //         phoneNumber: "+91" + phoneController.text,
-        //         verificationCompleted: (PhoneAuthCredential) async {
-        //           setState(() {
-        //             showLoading = false;
-        //           });
-        //         },
-        //         verificationFailed: (verificationFailed) async {
-        //           setState(() {
-        //             showLoading = false;
-        //           });
-        //           _scaffoldKey.currentState.showSnackBar(
-        //               SnackBar(content: Text(verificationFailed.message)));
-        //         },
-        //         codeSent: (verificationId, resendingToken) async {
-        //           setState(() {
-        //             showLoading = false;
-        //             currentState = MobileVerificationState.SHOW_OTP_FORM_STATE;
-        //             this.verificationId = verificationId;
-        //           });
-        //         },
-        //         codeAutoRetrievalTimeout: (VerificationId) async {});
-        //   },
-        //   child: Text(
-        //     "Send OTP",
-        //     style: TextStyle(color: Colors.white, fontSize: 20),
-        //   ),
-        //   padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 12.0),
-        //   shape:
-        //       RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        //   color: Colors.deepPurple,
-        // ),
-
-        // Spacer(),
-      ],
-    );
-  }
+       
 
   getOtpFormWidget(context) {
     return Padding(
@@ -456,102 +353,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 signInWithPhoneAuthCredential(phoneAuthCredential);
               },
-              // child: Text("VERIFY"),
-              // color: Colors.blue,
-              // textColor: Colors.white,
+            
             ),
             Spacer(),
           ],
         ),
       ),
     );
-    // return Column(
-    //   children: [
-    //     TextFormField(
-    //       keyboardType: TextInputType.number,
-    //       controller: otpController,
-    // decoration: InputDecoration(
-    //   hintText: "Enter OTP",
-    //   border: OutlineInputBorder(
-    //     borderRadius: BorderRadius.circular(25.0),
-    //     borderSide: BorderSide(
-    //       color: Colors.deepPurple,
-    //     ),
-    //   ),
-    // ),
-    //     ),
-    //     SizedBox(
-    //       height: 10.0,
-    //     ),
-    //     InkWell(
-    //       onTap: () async {
-    //         // startTimer();
-    //         setState(() {
-    //           showLoading = true;
-    //         });
-    //         await _auth.verifyPhoneNumber(
-    //             phoneNumber: phoneController.text,
-    //             verificationCompleted: (PhoneAuthCredential) async {
-    //               setState(() {
-    //                 showLoading = false;
-    //               });
-    //             },
-    //             verificationFailed: (verificationFailed) async {
-    //               setState(() {
-    //                 showLoading = false;
-    //               });
-    //               _scaffoldKey.currentState.showSnackBar(
-    //                   SnackBar(content: Text(verificationFailed.message)));
-    //             },
-    //             codeSent: (verificationId, resendingToken) async {
-    //               setState(() {
-    //                 showLoading = false;
-    //                 currentState = MobileVerificationState.SHOW_OTP_FORM_STATE;
-    //                 this.verificationId = verificationId;
-    //               });
-    //             },
-    //             codeAutoRetrievalTimeout: (VerificationId) async {});
-    //       },
-    //     ),
-    //     SizedBox(
-    //       height: 10.0,
-    //     ),
-    //     ElevatedButton(
-    //       child: Container(
-    //         height: 50.0,
-    //         width: 100.0,
-    //         child: Center(
-    //           child: Text(
-    //             "Verify",
-    //             style: TextStyle(fontSize: 18.0, fontFamily: 'Ubuntu'),
-    //           ),
-    //         ),
-    //       ),
-    //       style: ElevatedButton.styleFrom(
-    //         primary: Colors.purpleAccent[100],
-    //         onSurface: Colors.white,
-    //         shadowColor: Colors.pinkAccent,
-    //         elevation: 20.0,
-    //         animationDuration: Duration(milliseconds: 200),
-    //         shape: RoundedRectangleBorder(
-    //           borderRadius: BorderRadius.circular(24.0),
-    //         ),
-    //       ),
-    //       onPressed: () async {
-    //         PhoneAuthCredential phoneAuthCredential =
-    //             PhoneAuthProvider.credential(
-    //                 verificationId: verificationId,
-    //                 smsCode: otpController.text);
-    //         signInWithPhoneAuthCredential(phoneAuthCredential);
-    //       },
-    //     ),
-    //     SizedBox(
-    //       height: 10.0,
-    //     ),
-    //   ],
-    // );
-  }
-
+   
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
